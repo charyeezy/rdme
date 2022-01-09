@@ -22,11 +22,10 @@ const help = require('./lib/help');
 const commands = require('./lib/commands');
 
 /**
- * @param {Array} processArgv - An array of arguments from the current process. Can be used to mock
- *    fake CLI calls.
+ * @param processArgv An array of arguments from the current process. Can be used to mock fake CLI calls.
  * @return {Promise}
  */
-module.exports = processArgv => {
+export default function rdme(processArgv: Array<string>) {
   const mainArgs = [
     { name: 'help', alias: 'h', type: Boolean, description: 'Display this usage guide' },
     {
@@ -118,4 +117,4 @@ module.exports = processArgv => {
 
     return Promise.reject(e);
   }
-};
+}

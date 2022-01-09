@@ -1,13 +1,13 @@
-#! /usr/bin/env node
-const chalk = require('chalk');
+import chalk from 'chalk';
+import rdme from '.';
 
-require('../src')(process.argv.slice(2))
-  .then(msg => {
+rdme(process.argv.slice(2))
+  .then((msg?: string) => {
     // eslint-disable-next-line no-console
     if (msg) console.log(msg);
     return process.exit(0);
   })
-  .catch(err => {
+  .catch((err: Error) => {
     let message = `Yikes, something went wrong! Please try again and if the problem persists, get in touch with our support team at ${chalk.underline(
       'support@readme.io'
     )}.`;
